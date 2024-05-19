@@ -36,9 +36,7 @@ STATIC_URL = '/static/'
 SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = True
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -92,18 +90,7 @@ WSGI_APPLICATION = 'weather_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': config('DB_ENGINE'),
-        'NAME': config('DB_NAME'),
-        'HOST': config('DB_HOST'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'USER': config('DB_USER'),
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
-    }
-}
+
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'

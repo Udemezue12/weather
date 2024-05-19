@@ -1,0 +1,29 @@
+<ul class="nav">
+    <li class="nav-link">
+        <a href="{% url 'weather' %}">Home</a>
+    </li>
+    <li class="nav-link">
+        <a href="#">About</a>
+    </li>
+    {% if request.user.is_authenticated %}
+    <li class="nav-link">
+        <a href="{% url 'check_weather' %}">Check Weather</a>
+    </li>
+    <li class="nav-link">
+        <a href="{% url 'cities' %}">Cities</a>
+    </li>
+    <li class="nav-link">
+        <a href="{% url 'logout' %}">Log Out</a>
+    </li>
+    <li class="nav-link">
+        <a href="#">Account</a>
+    </li>
+    {% else %}
+    <li class="nav-link">
+        <a href="{% url 'login' %}">Log In</a>
+    </li>
+    <li class="nav-link">
+        <a href="{% url 'register' %}">Register</a>
+    </li>
+    {% endif %}
+</ul>

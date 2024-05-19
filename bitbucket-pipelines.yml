@@ -1,0 +1,12 @@
+image: python:3.8
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - pip
+        script:
+          - pip install -r requirements.txt
+          - python manage.py migrate
+          - python manage.py test
+          - python manage.py collectstatic --noinput

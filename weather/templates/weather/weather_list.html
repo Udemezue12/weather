@@ -1,0 +1,27 @@
+{% extends "weather/base.html" %}
+{% block content %}
+    <h1>City Weather List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Temperature (°C)</th>
+                <th>Description</th>
+                <th>Humidity (%)</th>
+                <th>Wind Speed (m/s)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for city_data in weather_data_list %}
+                <tr>
+                    <td>{{ city_data.city }}</td>
+                    <td>{{ city_data.weather_data.temperature }}</td>
+                    <td>{{ city_data.weather_data.description }}</td>
+                    <td>{{ city_data.weather_data.humidity }}</td>
+                    <td>{{ city_data.weather_data.wind_speed }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock  %}
+

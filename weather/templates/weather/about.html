@@ -1,0 +1,26 @@
+{% extends "weather/base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="container mt-5"
+
+data-aos="zoom-out-up"
+data-aos-easing="linear"
+data-aos-duration="1500">
+    <div class="jumbotron bg-dark text-light">
+        <h2 class="display-4">About This Project</h2>
+        <p class="lead">Welcome to the Weather App! This user-friendly tool helps you check real-time weather updates for cities around the world.</p>
+        <hr class="my-4 bg-light">
+        
+        <h3 class="mb-3">Key Features:</h3>
+        <ul class="list-group">
+            <li class="list-group-item bg-dark text-light border-light"><strong>Real-Time Updates:</strong> Get the latest weather information.</li>
+            <li class="list-group-item bg-dark text-light border-light"><strong>Easy to Use:</strong> Simple and clean design.</li>
+            <li class="list-group-item bg-dark text-light border-light"><strong>Account Management:</strong> Register and log in to save your favorite cities.</li>
+        </ul>
+        
+        <p class="mt-4">Built with Django and using the OpenWeatherMap API, our app ensures you have the latest weather information at your fingertips. Stay prepared with the Weather App!</p>
+    </div>
+</div>
+{% endblock %}

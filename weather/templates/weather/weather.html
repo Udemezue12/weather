@@ -1,0 +1,22 @@
+{% extends "weather/base.html" %}
+{% block content %}
+<h1>Weather</h1>
+<div class="container">
+    <div class="row">
+        {% for data in weather_data %}
+            <div class="col-md-4 mb-4" data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="1500">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ data.name }}</h5>
+                        <p class="card-text">Temperature: {{ data.main.temp }}°C</p>
+                        <p class="card-text">Description: {{ data.weather.0.description }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock  %}

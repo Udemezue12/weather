@@ -2,7 +2,7 @@ import os
 from .common import *
 from decouple import config
 
-SECRET_KEY = config['SECRET_KEY']
+SECRET_KEY = os.environ['SECRET_KEY']
 
 
 DEBUG = False

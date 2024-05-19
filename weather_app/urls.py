@@ -21,10 +21,8 @@ from weather import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('weather.urls')),
-    # path('', include('customer.urls')),
 ]
 
-from django.conf.urls import handler404
 
 # handler404 = 'weather.handlers.handler404'
 # handler404 = 'weather.views.custom_404_view'

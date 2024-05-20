@@ -11,13 +11,13 @@ from .common import *
 # load_dotenv()
 
 
-SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = False
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['weather-mx72.onrender.com']
 CSRF_TRUSTED_ORIGINS = ['weather-mx72.onrender.com']
 
+SECRET_KEY = config('SECRET_KEY')
 
 
 

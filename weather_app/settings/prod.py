@@ -16,8 +16,8 @@ logger.debug(f'PORT: {os.environ.get("PORT")}')
 logger.debug(f'SECRET_KEY: {os.environ.get("SECRET_KEY")}')
 logger.debug(f'DATABASE_URL: {os.getenv("DATABASE_URL")}')
 
-SECRET_KEY = os.environ['SECRET_KEY']
 PORT = int(os.environ.get('PORT', 8080))
+SECRET_KEY = os.environ['SECRET_KEY']
 
 DATABASE_URL = os.getenv('DATABASE_URL')
 db_from_env = dj_database_url.config(default=DATABASE_URL)

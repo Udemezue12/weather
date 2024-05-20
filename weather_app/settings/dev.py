@@ -1,8 +1,13 @@
 import os
+import pymysql
 from decouple import config 
 from dotenv import load_dotenv
+from django.db.backends.mysql.base import DatabaseWrapper as MySQLDatabaseWrapper
 from .common import *
 
+
+pymysql.version_info = (1, 4, 13, "final", 0)
+pymysql.install_as_MySQLdb()
 
 load_dotenv()
 
@@ -27,16 +32,16 @@ DATABASES = {
     }
 }
 
-DATABASES = {
-    'default': {
-        'ENGINE': os.getenv('DB_ENGINE'),
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': os.getenv('DB_ENGINE'),
+#         'NAME': os.getenv('DB_NAME'),
+#         'USER': os.getenv('DB_USER'),
+#         'PASSWORD': os.getenv('DB_PASSWORD'),
+#         'HOST': os.getenv('DB_HOST'),
+#         'PORT': os.getenv('DB_PORT'),
+#     }
+# }
 
 # CELERY_BROKER_URL = 'redis://localhost:6379/1'
 

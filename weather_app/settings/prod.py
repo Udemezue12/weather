@@ -11,7 +11,6 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 ch.setFormatter(formatter)
 logger.addHandler(ch)
 
-# Log environment variables
 logger.debug(f'PORT: {os.environ.get("PORT")}')
 logger.debug(f'SECRET_KEY: {os.environ.get("SECRET_KEY")}')
 logger.debug(f'DATABASE_URL: {os.getenv("DATABASE_URL")}')
@@ -32,3 +31,9 @@ DATABASES = {
 DEBUG = False
 
 ALLOWED_HOSTS = ["weather-n8j3.onrender.com", "weather-checker-app-550b9b073733.herokuapp.com"]
+CSRF_TRUSTED_ORIGINS = [
+    'https://weather-checker-app-550b9b073733.herokuapp.com',
+    'https://weather-n8j3.onrender.com'
+]
+
+

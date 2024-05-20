@@ -1,5 +1,6 @@
 import os
 import pymysql
+import dj_database_url
 from decouple import config 
 from dotenv import load_dotenv
 from django.db.backends.mysql.base import DatabaseWrapper as MySQLDatabaseWrapper
@@ -18,19 +19,38 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': config('DB_ENGINE'),
-        'NAME': config('DB_NAME'),
-        'HOST': config('DB_HOST'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'USER': config('DB_USER'),
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
 
-    }
+
+DATABASES = {
+    'default': dj_database_url.config(default='sqlite:///:memory:')
 }
+
+if os.getenv('DB_URL'):
+    db_from_env = dj_database_url.config(default=os.getenv('DB_URL'))
+    DATABASES['default'].update(db_from_env)
+else:
+    DATABASES['default']['ENGINE'] = os.getenv('DB_ENGINE', DATABASES['default']['ENGINE'])
+    DATABASES['default']['NAME'] = os.getenv('DB_NAME', DATABASES['default']['NAME'])
+    DATABASES['default']['USER'] = os.getenv('DB_USER', DATABASES['default']['USER'])
+    DATABASES['default']['PASSWORD'] = os.getenv('DB_PASSWORD', DATABASES['default']['PASSWORD'])
+    DATABASES['default']['HOST'] = os.getenv('DB_HOST', DATABASES['default']['HOST'])
+    DATABASES['default']['PORT'] = os.getenv('DB_PORT', DATABASES['default']['PORT'])
+
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': config('DB_ENGINE'),
+#         'NAME': config('DB_NAME'),
+#         'HOST': config('DB_HOST'),
+#         'PASSWORD': config('DB_PASSWORD'),
+#         'USER': config('DB_USER'),
+#         'OPTIONS': {
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#         },
+
+#     }
+# }
 
 # DATABASES = {
 #     'default': {

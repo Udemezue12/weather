@@ -16,6 +16,9 @@ load_dotenv()
 SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = False
+ALLOWED_HOSTS = ["weather-mx72.onrender.com"]
+CSRF_TRUSTED_ORIGINS = ["weather-mx72.onrender.com"]
+
 
 
 
@@ -79,5 +82,3 @@ else:
 # EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
 # DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='')
 
-ALLOWED_HOSTS=["https://weather-mx72.onrender.com"]
-CSRF_TRUSTED_ORIGINS = ["https://weather-mx72.onrender.com"]

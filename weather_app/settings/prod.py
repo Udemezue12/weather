@@ -3,7 +3,6 @@ import logging
 import dj_database_url
 from weather_app.settings.common import *
 
-# Setup logging to print debug information
 logger = logging.getLogger('django')
 logger.setLevel(logging.DEBUG)
 ch = logging.StreamHandler()
@@ -13,8 +12,8 @@ ch.setFormatter(formatter)
 logger.addHandler(ch)
 
 # Log environment variables
-logger.debug(f'SECRET_KEY: {os.environ.get("SECRET_KEY")}')
 logger.debug(f'PORT: {os.environ.get("PORT")}')
+logger.debug(f'SECRET_KEY: {os.environ.get("SECRET_KEY")}')
 logger.debug(f'DATABASE_URL: {os.getenv("DATABASE_URL")}')
 
 SECRET_KEY = os.environ['SECRET_KEY']

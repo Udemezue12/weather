@@ -1,5 +1,4 @@
 import os
-import pymysql
 import dj_database_url
 from decouple import config 
 from dotenv import load_dotenv
@@ -14,8 +13,8 @@ from .common import *
 
 # SECRET_KEY = config('SECRET_KEY')
 
-# DEBUG = True
-# ALLOWED_HOSTS = []
+DEBUG = True
+ALLOWED_HOSTS = []
 
 
 

@@ -1,7 +1,8 @@
+import os
 from decouple import config 
+from dotenv import load_dotenv
 from .common import *
 
-from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -23,6 +24,17 @@ DATABASES = {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         },
 
+    }
+}
+
+DATABASES = {
+    'default': {
+        'ENGINE': os.getenv('DB_ENGINE'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
 

@@ -17,7 +17,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = False
 ALLOWED_HOSTS = ['weather-s2z2.onrender.com']
-CSRF_TRUSTED_ORIGINS = ['weather-s2z2.onrender.com']
+CSRF_TRUSTED_ORIGINS = ["https://weather-s2z2.onrender.com"]
 
 
 

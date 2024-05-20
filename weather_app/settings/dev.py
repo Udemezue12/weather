@@ -12,10 +12,9 @@ from .common import *
 
 
 
-DEBUG = False
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['weather-mx72.onrender.com']
-CSRF_TRUSTED_ORIGINS = ['weather-mx72.onrender.com']
+DEBUG = True
+ALLOWED_HOSTS = []
+
 
 SECRET_KEY = config('SECRET_KEY')
 

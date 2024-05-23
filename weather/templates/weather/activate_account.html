@@ -1,0 +1,21 @@
+{% extends "weather/base.html" %}
+
+
+
+
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Hi {{user}}</h2>
+                    <p class="text-center">Please click on the link below to confirm yout registration:<a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}"></a>Click Here</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

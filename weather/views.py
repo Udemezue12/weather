@@ -20,6 +20,7 @@ from django.contrib import messages
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
 from weather_app.settings.common import DEFAULT_FROM_EMAIL
+from .forms import UserRegistrationForm
 
 
 from weather import forms
@@ -91,14 +92,11 @@ def about(request):
 
 def register(request):
     if request.method == 'POST':
-        form = forms.UserRegistrationForm(request.POST)
+        form = UserRegistrationForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.is_active = False
-            user.save()
-            activateEmail(request, user, form.cleaned_data.get('email'))
-
-            return redirect('weather')
+            user = form.save()
+            login(request, user)
+            return redirect('index')
     else:
         form = forms.UserRegistrationForm()
     return render(request, 'weather/register.html', {'form': form})

@@ -31,16 +31,16 @@ class UserRegistrationForm(forms.ModelForm):
             raise ValidationError('The email has already been registered')
         return email
 
-    def clean_password(self):
-        password = self.cleaned_data.get('password')
-        if (len(password) < 8 or not re.search(r'[A-Z]', password) or
-            not re.search(r'[a-z]', password) or not re.search(r'\d', password) or
-                not re.search(r'[!@#$%^&*(),.?":{}|<>]', password)):
-            raise ValidationError(
-                'Password must be at least 8 characters long, contain at least one uppercase letter, '
-                'one lowercase letter, one digit, and one special character'
-            )
-        return password
+    # def clean_password(self):
+    #     password = self.cleaned_data.get('password')
+    #     if (len(password) < 8 or not re.search(r'[A-Z]', password) or
+    #         not re.search(r'[a-z]', password) or not re.search(r'\d', password) or
+    #             not re.search(r'[!@#$%^&*(),.?":{}|<>]', password)):
+    #         raise ValidationError(
+    #             'Password must be at least 8 characters long, contain at least one uppercase letter, '
+    #             'one lowercase letter, one digit, and one special character'
+    #         )
+    #     return password
 
     def clean(self):
         cleaned_data = super().clean()

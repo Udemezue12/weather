@@ -42,6 +42,13 @@ class UserRegistrationForm(forms.ModelForm):
     #         )
     #     return password
 
+    def clean_password(self):
+        password = self.cleaned_data.get('password')
+        if len(password) < 8:
+            raise ValidationError(
+                'Password must be at least 8 characters long')
+        return password
+
     def clean(self):
         cleaned_data = super().clean()
         password = cleaned_data.get("password")

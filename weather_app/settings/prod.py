@@ -31,12 +31,9 @@ DATABASES = {
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["weather-n8j3.onrender.com",
-                 "weather-checker-app-550b9b073733.herokuapp.com"]
+ALLOWED_HOSTS = ["weather-n8j3.onrender.com", "weather-g71k.onrender.com"]
 CSRF_TRUSTED_ORIGINS = [
-    'https://weather-checker-app-550b9b073733.herokuapp.com',
-    'https://weather-n8j3.onrender.com'
-]
+    'https://weather-checker-app-550b9b073733.herokuapp.com', 'https://weather-g71k.onrender.com']
 
 # prod.py
 

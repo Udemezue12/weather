@@ -78,8 +78,8 @@ def activateEmail(request, user, to_email):
         messages.success(request, f"Dear <b>{user}</b>, please go to the email <b>{
                          to_email}</b> inbox and click on the received activation link to confirm and complete the registration. <b>Note</b> Check your spam folder.")
     except Exception as e:
-        messages.error(request, f'Problem sending mail to {
-                       to_email}, check if you typed the email address correctly. Error: {str(e)}')
+        messages.error(request, 'Problem sending mail to {}. Check if you typed the email address correctly. Error: {}'.format(to_email, str(e)))
+
 
 
 def index(request):

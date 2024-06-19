@@ -15,7 +15,7 @@ load_dotenv()
 
 SECRET_KEY = config('SECRET_KEY')
 
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['weather-j269.onrender.com']
 CSRF_TRUSTED_ORIGINS = ['https://weather-j269.onrender.com']
 

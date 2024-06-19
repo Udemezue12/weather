@@ -33,6 +33,9 @@ DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_FROM')
 
 API_KEY = os.getenv('API_KEY')
 
+from django.utils.html import escape
+from django.utils.safestring import mark_safe
+
 
 # def user(self):
 #     user_obj = User.objects.get()
@@ -65,6 +68,8 @@ def activateEmail(request, user, to_email):
     recipient_list = [to_email]
     # from_email = settings.DEFAULT_FROM_EMAIL  
     from_email = DEFAULT_FROM_EMAIL  
+    safe_to_email = escape(to_email)
+    safe_error = escape(str(e))
 
 
     try:
@@ -75,8 +80,14 @@ def activateEmail(request, user, to_email):
             recipient_list,
             fail_silently=False,
         )
-        messages.success(request, f"Dear <b>{user}</b>, please go to the email <b>{
-                         to_email}</b> inbox and click on the received activation link to confirm and complete the registration. <b>Note</b> Check your spam folder.")
+
+        messages.error(
+        
+           request,
+           mark_safe(
+                'Problem sending mail to <b>{}</b>. Check if you typed the email address correctly. Error: <b>{}</b>'.format(safe_to_email, safe_error)
+            )
+        )
     except Exception as e:
         messages.error(request, 'Problem sending mail to {}. Check if you typed the email address correctly. Error: {}'.format(to_email, str(e)))
 

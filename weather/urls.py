@@ -10,7 +10,7 @@ urlpatterns = [
     path('cities/', views.add_city, name='cities'),
     path('weather/', views.weather, name='weather'),
     path('check/', views.create_weather, name='check'),
-    path('about/', views.about, name='about'),
+#     path('about/', views.about, name='about'),
     # path('reset_password/<uidb64>/<token>/', views.reset_password, name='reset_password'),
     # path('password-reset', views.password_reset_request, name='password-reset'),
 

@@ -132,7 +132,6 @@ def logout_view(request):
     logout(request)
     return redirect('index')
 
-@login_required
 def add_city(request):
     if request.method == 'POST':
         form = forms.CityForm(request.POST)
@@ -143,7 +142,6 @@ def add_city(request):
         form = forms.CityForm()
     return render(request, 'weather/add_city.html', {'form': form})
 
-@login_required
 def get_weather_data(city):
     api_key = API_KEY
     url = (
@@ -154,7 +152,6 @@ def get_weather_data(city):
     response = requests.get(url)
     return response.json()
 
-@login_required
 def create_weather(request):
     city = request.GET.get('city', 'London')
     weather_data = get_weather_data(city)
@@ -175,7 +172,6 @@ def weather(request):
 
     return render(request, 'weather/weather.html', {'weather_data': weather_data})
 
-@login_required
 def city_list(request):
     cities = City.objects.all()
     weather_data_list = []

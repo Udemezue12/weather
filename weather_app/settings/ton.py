@@ -27,16 +27,26 @@ DATABASES = {
     'default': dj_database_url.config(default='sqlite:///:memory:')
 }
 
-if os.getenv('DB_URL'):
-    db_from_env = dj_database_url.config(default=os.getenv('DB_URL'))
-    DATABASES['default'].update(db_from_env)
-else:
-    DATABASES['default']['ENGINE'] = os.getenv('DB_ENGINE', DATABASES['default']['ENGINE'])
-    DATABASES['default']['NAME'] = os.getenv('DB_NAME', DATABASES['default']['NAME'])
-    DATABASES['default']['USER'] = os.getenv('DB_USER', DATABASES['default']['USER'])
-    DATABASES['default']['PASSWORD'] = os.getenv('DB_PASSWORD', DATABASES['default']['PASSWORD'])
-    DATABASES['default']['HOST'] = os.getenv('DB_HOST', DATABASES['default']['HOST'])
-    DATABASES['default']['PORT'] = os.getenv('DB_PORT', DATABASES['default']['PORT'])
+# if os.getenv('DB_URL'):
+#     db_from_env = dj_database_url.get(default=os.getenv('DB_URL'))
+#     DATABASES['default'].update(db_from_env)
+# else:
+#     DATABASES['default']['ENGINE'] = os.getenv('DB_ENGINE', DATABASES['default']['ENGINE'])
+#     DATABASES['default']['NAME'] = os.getenv('DB_NAME', DATABASES['default']['NAME'])
+#     DATABASES['default']['USER'] = os.getenv('DB_USER', DATABASES['default']['USER'])
+#     DATABASES['default']['PASSWORD'] = os.getenv('DB_PASSWORD', DATABASES['default']['PASSWORD'])
+#     DATABASES['default']['HOST'] = os.getenv('DB_HOST', DATABASES['default']['HOST'])
+#     DATABASES['default']['PORT'] = os.getenv('DB_PORT', DATABASES['default']['PORT'])
+from pathlib import Path
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'weather.db',  # Path to your SQLite database file
+    }
+}
 
 
 

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django_countries',
+    
     "weather",
     'rest_framework', 
     'corsheaders',

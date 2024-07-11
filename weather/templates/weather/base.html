@@ -20,9 +20,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about' %}">About</a>
-                </li>
+                
 
                 {% if user.is_authenticated %}
                     <li class="nav-item">
@@ -32,6 +30,9 @@
                         <a class="nav-link" href="{% url 'cities' %}">Check Weather</a>
                     </li>
                 {% else %}
+                <li class="nav-item">
+                        <a class="nav-link" href="{% url 'cities' %}">Check Weather</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}">Login</a>
                     </li>

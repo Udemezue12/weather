@@ -93,7 +93,7 @@ def activateEmail(request, user, to_email):
 
 
 def index(request):
-    return redirect('weather')
+    return render(request, 'weather/index.html')
 
 
 def about(request):

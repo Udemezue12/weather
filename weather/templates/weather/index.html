@@ -1,8 +1,35 @@
 {% extends "weather/base.html" %}
 
-{% block title %}About{% endblock %}
+
 
 {% block content %}
+<div class="container jumbotron">
+<style>
+.navy {
+    color: #67cd6c34; /* Default color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.navy:hover {
+    color: #f00; /* Color change on hover */
+}
+
+</style>
+
+
+
+<div class="container" data-aos="zoom-out-up"
+data-aos-easing="linear"
+data-aos-duration="1500">
+    <div>
+
+        <h1>Welcome {{user.firstname}}</h1>
+        <a class="navy" href="{% url 'cities' %}">Click Here to Check the Weather</a>
+        
+    </div>
+
+</div>
 <div class="container mt-5"
 
 data-aos="zoom-out-up"
@@ -22,5 +49,6 @@ data-aos-duration="1500">
         
         <p class="mt-4">Built with Django and using the OpenWeatherMap API, our app ensures you have the latest weather information at your fingertips. Stay prepared with the Weather App!</p>
     </div>
+</div>
 </div>
 {% endblock %}

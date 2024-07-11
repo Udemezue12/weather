@@ -3,7 +3,7 @@ import pymysql
 import dj_database_url
 from decouple import config 
 from dotenv import load_dotenv
-from django.db.backends.mysql.base import DatabaseWrapper as MySQLDatabaseWrapper
+# from django.db.backends.mysql.base import DatabaseWrapper as MySQLDatabaseWrapper
 from .common import *
 
 

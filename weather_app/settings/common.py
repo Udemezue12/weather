@@ -14,9 +14,9 @@ from pathlib import Path
 from decouple import config
 from dotenv import load_dotenv
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 
 # Load environment variables from .env file
@@ -32,10 +32,9 @@ STATIC_URL = '/static/'
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+# SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-
 
 
 # Application definition
@@ -49,9 +48,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django_countries',
-    
+
     "weather",
-    'rest_framework', 
+    'rest_framework',
     'corsheaders',
 ]
 
@@ -89,7 +88,6 @@ WSGI_APPLICATION = 'weather_app.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 
 
 LOGIN_REDIRECT_URL = '/'
@@ -144,8 +142,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 load_dotenv()
 
 
-
-
 load_dotenv()
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -153,12 +149,11 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_FROM')
-EMAIL_TIMEOUT = 120 
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = os.getenv('EMAIL_FROM')
+EMAIL_TIMEOUT = 120
 
 # EMAIL_TIMEOUT = 60
 # Load from email address
-DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
-
+DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER')
